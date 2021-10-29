@@ -32,45 +32,27 @@ export type AppRouteConfig = IAppRoute | IAppRouteGroup;
 
 const routes: AppRouteConfig[] = [
   {
-    component: Dashboard,
-    exact: true,
-    label: 'Dashboard',
-    path: '/',
-    title: 'PatternFly Seed | Main Dashboard',
-  },
-  {
-    component: Support,
+    component: MultiLoginPage,
     exact: true,
     isAsync: true,
-    label: 'Support',
-    path: '/support',
-    title: 'PatternFly Seed | Support Page',
-  },
-  {
-    label: 'Settings',
-    routes: [
-      {
-        component: GeneralSettings,
-        exact: true,
-        label: 'General',
-        path: '/settings/general',
-        title: 'PatternFly Seed | General Settings',
-      },
-      {
-        component: ProfileSettings,
-        exact: true,
-        label: 'Profile',
-        path: '/settings/profile',
-        title: 'PatternFly Seed | Profile Settings',
-      },
-    ],
+    label: 'Login',
+    path: '/',
+    title: 'PatternFly Seed | Login Page',
   },
   {
     component: MultiLoginPage,
     exact: true,
     isAsync: true,
-    label: 'Login',
-    path: '/login',
+    label: 'Register',
+    path: '/register',
+    title: 'PatternFly Seed | Login Page',
+  },
+  {
+    component: MultiLoginPage,
+    exact: true,
+    isAsync: true,
+    label: 'All univ',
+    path: '/other',
     title: 'PatternFly Seed | Login Page',
   },
 ];

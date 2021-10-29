@@ -79,7 +79,7 @@ class MultiLoginForm extends React.Component {
 
     return (
       <div>
-        <Flex justifyContent={{ default: 'justifyContentFlexEnd' }}>
+        <Flex className justifyContent={{ default: 'justifyContentFlexEnd' }}>
           <FlexItem>
             <SelectLanguage
               onSelect={this.props.onLanguageSelect}

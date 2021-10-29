@@ -41,17 +41,9 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     );
   }
 
-  const Header = (
-    <PageHeader
-      logo={<LogoImg />}
-      showNavToggle
-      isNavOpen={isNavOpen}
-      onNavToggle={isMobileView ? onNavToggleMobile : onNavToggle}
-    />
-  );
-
   const location = useLocation();
 
+  
   const renderNavItem = (route: IAppRoute, index: number) => (
     <NavItem key={`${route.label}-${index}`} id={`${route.label}-${index}`}>
       <NavLink exact={route.exact} to={route.path} activeClassName="pf-m-current">
@@ -72,7 +64,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const Navigation = (
-    <Nav id="nav-primary-simple" theme="dark">
+    <Nav id="nav-primary-simple" theme="dark" variant="horizontal">
       <NavList id="nav-list-simple">
         {routes.map(
           (route, idx) => route.label && (!route.routes ? renderNavItem(route, idx) : renderNavGroup(route, idx))
@@ -81,11 +73,11 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     </Nav>
   );
 
-  const Sidebar = (
-    <PageSidebar
-      theme="dark"
-      nav={Navigation}
-      isNavOpen={isMobileView ? isNavOpenMobile : isNavOpen} />
+  const Header = (
+    <PageHeader
+      logo={<LogoImg />}
+      topNav={Navigation}
+    />
   );
 
   const pageId = 'primary-app-container';
@@ -103,9 +95,9 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     <Page
       mainContainerId={pageId}
       header={Header}
-      sidebar={Sidebar}
       onPageResize={onPageResize}
-      skipToContent={PageSkipToContent}>
+      skipToContent={PageSkipToContent}
+    >
       {children}
     </Page>
   );

@@ -8,7 +8,6 @@ class MultiLoginPage extends React.Component {
     this.state = {
       langId: 'en'
     }
-
     this.usernameLabel={
       'en': "Username",
       'ua': "Ім'я користувача"
@@ -67,6 +66,7 @@ class MultiLoginPage extends React.Component {
     };
 
   }
+
 
   render() {
     const {langId} = this.state;
