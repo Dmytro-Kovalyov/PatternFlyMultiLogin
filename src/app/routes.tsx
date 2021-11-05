@@ -5,10 +5,13 @@ import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
-import { MultiLoginPage } from '@app/Login/MultiLoginPage';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
+
+import { MultiLoginPage } from '@app/Login/MultiLoginPage';
+import { RegisterPage } from '@app/Register/RegisterPage';
+import { AllKNUPage } from '@app/AllUniv/AllUnivPage';
 
 let routeFocusTimer: number;
 export interface IAppRoute {
@@ -40,7 +43,7 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Login Page',
   },
   {
-    component: MultiLoginPage,
+    component: RegisterPage,
     exact: true,
     isAsync: true,
     label: 'Register',
@@ -48,11 +51,11 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Login Page',
   },
   {
-    component: MultiLoginPage,
+    component: AllKNUPage,
     exact: true,
     isAsync: true,
-    label: 'All univ',
-    path: '/other',
+    label: 'All KNU',
+    path: '/allknu',
     title: 'PatternFly Seed | Login Page',
   },
 ];
