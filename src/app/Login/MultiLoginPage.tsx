@@ -1,6 +1,11 @@
 import React from 'react';
-import {LoginPage} from '@patternfly/react-core';
-import {MultiLoginForm} from "./MultiLoginForm"
+import {
+  Grid,
+  GridItem,
+  PageSection,
+  Title
+} from '@patternfly/react-core';
+import {MultiLoginFormTranslated} from "./MultiLoginForm"
 
 class MultiLoginPage extends React.Component {
   constructor(props) {
@@ -52,21 +57,7 @@ class MultiLoginPage extends React.Component {
       'en': "Taras Shevchenko National University of Kyiv",
       'ua': "Київський національний університет імені Тараса Шевченка"
     }
-
-    this.onLanguageSelect = (event, selection, isPlaceholder) => {
-      switch(selection)
-      {
-        case "English":
-          this.setState({langId : 'en'});
-          break;
-        case "Українська":
-          this.setState({langId : 'ua'});
-          break;
-      }
-    };
-
   }
-
 
   render() {
     const {langId} = this.state;
@@ -80,24 +71,45 @@ class MultiLoginPage extends React.Component {
     };
 
     return (
-      <LoginPage
-        //brandImgAlt="PatternFly logo"
-        backgroundImgSrc={images}
-        backgroundImgAlt="Images"
-        textContent={this.textContent[langId]}
-        loginTitle={this.loginTitle[langId]}
-        loginSubtitle={this.loginSubtitle[langId]}
-      >
-        <MultiLoginForm
-          onLanguageSelect={this.onLanguageSelect}
-          usernameLabel={this.usernameLabel[langId]}
-          passwordLabel={this.passwordLabel[langId]}
-          usernameHelperLabel={this.passwordHelperLabel[langId]}
-          passwordHelperLabel={this.passwordHelperLabel[langId]}
-          nextLabel={this.nextLabel[langId]}
-          loginLabel={this.loginLabel[langId]}
-        />
-      </LoginPage>
+      <PageSection className="pf-m-limit-width pf-m-align-center pf-u-pt-3xl pf-u-background-color-dark-300">
+        <Grid
+          hasGutter
+          xl2={6}
+          xl={6}
+          lg={6}
+          md={12}
+          sm={12}
+          className="pf-u-px-lg pf-u-pt-3xl pf-u-pb-lg"
+          style={{maxWidth: "1200px"}}
+        >
+          <GridItem
+            className="pf-u-background-color-100 pf-u-px-2xl pf-u-py-2xl"
+            style={{maxWidth: "568px"}}
+          >
+            <Title headingLevel="h1" size="3xl">
+              {this.loginTitle[langId]}
+            </Title>
+            <Title headingLevel="h2" size="lg" className="pf-u-mt-lg">
+              {this.loginSubtitle[langId]}
+            </Title>
+            <MultiLoginFormTranslated
+              onLanguageSelect={this.onLanguageSelect}
+              usernameLabel={this.usernameLabel[langId]}
+              passwordLabel={this.passwordLabel[langId]}
+              usernameHelperLabel={this.passwordHelperLabel[langId]}
+              passwordHelperLabel={this.passwordHelperLabel[langId]}
+              nextLabel={this.nextLabel[langId]}
+              loginLabel={this.loginLabel[langId]}
+            />
+          </GridItem>
+          <GridItem
+            className="pf-u-color-400 pf-u-px-2xl pf-u-py-2xl"
+            style={{maxWidth: "568px"}}
+          >
+            {this.textContent[langId]}
+          </GridItem>
+        </Grid>
+      </PageSection>
     );
   }
 }

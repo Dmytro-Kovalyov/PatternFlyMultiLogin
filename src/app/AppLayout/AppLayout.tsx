@@ -7,11 +7,13 @@ import {
   NavExpandable,
   Page,
   PageHeader,
-  PageSidebar,
-  SkipToContent
+  SkipToContent,
+  Flex,
+  FlexItem,
 } from '@patternfly/react-core';
 import { routes, IAppRoute, IAppRouteGroup } from '@app/routes';
 import logo from '@app/bgimages/Patternfly-Logo.svg';
+import {SelectLanguageTranslated} from "../SelectLanguage/SelectLanguage";
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -64,13 +66,18 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const Navigation = (
-    <Nav id="nav-primary-simple" theme="dark" variant="horizontal">
-      <NavList id="nav-list-simple">
-        {routes.map(
-          (route, idx) => route.label && (!route.routes ? renderNavItem(route, idx) : renderNavGroup(route, idx))
-        )}
-      </NavList>
-    </Nav>
+    <Flex className="pf-u-w-100" direction={{ default: 'row'}}>
+      <Nav id="nav-primary-simple" theme="dark" variant="horizontal">
+        <NavList id="nav-list-simple">
+          {routes.map(
+            (route, idx) => route.label && (!route.routes ? renderNavItem(route, idx) : renderNavGroup(route, idx))
+          )}
+        </NavList>
+      </Nav>
+      <FlexItem className="pf-u-mr-md" align={{ default: 'alignRight' }}>
+        <SelectLanguageTranslated />
+      </FlexItem>
+    </Flex>
   );
 
   const Header = (

@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   Grid,
-  GridItem,
   Card,
   CardHeader,
   CardHeaderMain,
@@ -78,7 +77,7 @@ class AllKNUPage extends React.Component {
             hasGutter
             xl2={3}
             xl={3}
-            lg={6}
+            lg={3}
             md={6}
             sm={12}
             className="pf-u-px-lg"

@@ -1,6 +1,7 @@
 import React from 'react';
 import CubeIcon from '@patternfly/react-icons/dist/esm/icons/cube-icon';
 import { Select, SelectOption, SelectVariant, SelectDirection} from '@patternfly/react-core';
+import {withTranslation} from "react-i18next";
 
 class SelectLanguage extends React.Component {
   constructor(props) {
@@ -31,8 +32,19 @@ class SelectLanguage extends React.Component {
           selected: selection,
           isOpen: false
         });
-        console.log('selected:', selection);
-        this.props.onSelect(event, selection, isPlaceholder);
+
+        const { i18n } = this.props;
+
+        switch(selection)
+        {
+          case "English":
+            i18n.changeLanguage('en');
+            break;
+          case "Українська":
+            i18n.changeLanguage('ua');
+        }
+
+        //this.props.onSelect(event, selection, isPlaceholder);
       }
     };
 
@@ -69,8 +81,8 @@ class SelectLanguage extends React.Component {
   }
 
   render() {
-    const { isOpen, selected, isDisabled, direction, isToggleIcon } = this.state;
-    const titleId = 'title-id-1';
+    const { isOpen, selected, isDisabled, direction, isToggleIcon, className } = this.state;
+
     return (
         <Select
         toggleIcon={isToggleIcon && <CubeIcon />}
@@ -80,9 +92,10 @@ class SelectLanguage extends React.Component {
         onSelect={this.onSelect}
         selections={selected}
         isOpen={isOpen}
-        aria-labelledby={titleId}
+        aria-labelledby={'title-id-1'}
         isDisabled={isDisabled}
         direction={direction}
+        className={className}
       >
         {this.options}
       </Select>
@@ -90,4 +103,5 @@ class SelectLanguage extends React.Component {
   }
 }
 
-export {SelectLanguage}
+const SelectLanguageTranslated = withTranslation('common')(SelectLanguage)
+export {SelectLanguageTranslated}

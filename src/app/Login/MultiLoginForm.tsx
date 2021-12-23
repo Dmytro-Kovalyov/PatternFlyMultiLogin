@@ -11,10 +11,10 @@ import {
 }
 from '@patternfly/react-core';
 
-import {SelectLanguage} from "./SelectLanguage";
 import EyeSlashIcon from '@patternfly/react-icons/dist/js/icons/eye-slash-icon';
 import EyeIcon from '@patternfly/react-icons/dist/js/icons/eye-icon';
 import TimesCircleIcon from '@patternfly/react-icons/dist/js/icons/times-circle-icon';
+import {withTranslation} from "react-i18next";
 
 enum ValidatedOptions {
   success = 'success',
@@ -76,21 +76,16 @@ class MultiLoginForm extends React.Component {
   render() {
     const {username, password, isValidUsername, isValidPassword,
         passwordHidden, usernameEntered, langId} = this.state;
+    
+    const { t } = this.props;
 
     return (
-      <div>
-        <Flex className justifyContent={{ default: 'justifyContentFlexEnd' }}>
-          <FlexItem>
-            <SelectLanguage
-              onSelect={this.props.onLanguageSelect}
-            />
-          </FlexItem>
-        </Flex>
-
+      <div className={this.props.className}>
         { !usernameEntered && (
         <Form>
           <FormGroup
-            label={this.props.usernameLabel}
+            //label={this.props.usernameLabel}
+            label={t("loginForm.username")}
             isRequired
             fieldId="login-form-username"
             helperTextInvalid={this.props.usernameHelperLabel}
@@ -186,4 +181,5 @@ class MultiLoginForm extends React.Component {
   }
 }
 
-export {MultiLoginForm}
+const MultiLoginFormTranslated = withTranslation('common')(MultiLoginForm)
+export {MultiLoginFormTranslated}
