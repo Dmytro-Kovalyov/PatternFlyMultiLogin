@@ -1,5 +1,20 @@
 {
-    "loginForm": {
-        "username": "Username"
-    }
+	"loginForm": {
+		"loginButton": "Login",
+		"nextButton": "Next",
+		"password": "Password",
+		"passwordHelper": "Password is required",
+		"username": "Username",
+		"usernameHelper": "Username is required"
+	},
+	"loginPage": {
+		"content": "Taras Shevchenko National University of Kyiv",
+		"subtitle": "Enter your single sign-on LDAP credentials.",
+		"title": "Log in to your account"
+	},
+	"navigation": {
+		"allKNU": "All KNU",
+		"login": "Login",
+		"register": "Register"
+	}
 }

@@ -9,7 +9,7 @@ import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
 
-import { MultiLoginPage } from '@app/Login/MultiLoginPage';
+import { MultiLoginPageTranslated } from '@app/Login/MultiLoginPage';
 import { RegisterPage } from '@app/Register/RegisterPage';
 import { AllKNUPage } from '@app/AllUniv/AllUnivPage';
 
@@ -35,10 +35,10 @@ export type AppRouteConfig = IAppRoute | IAppRouteGroup;
 
 const routes: AppRouteConfig[] = [
   {
-    component: MultiLoginPage,
+    component: MultiLoginPageTranslated,
     exact: true,
     isAsync: true,
-    label: 'Login',
+    label: 'navigation.login',
     path: '/',
     title: 'PatternFly Seed | Login Page',
   },
@@ -46,7 +46,7 @@ const routes: AppRouteConfig[] = [
     component: RegisterPage,
     exact: true,
     isAsync: true,
-    label: 'Register',
+    label: 'navigation.register',
     path: '/register',
     title: 'PatternFly Seed | Login Page',
   },
@@ -54,7 +54,7 @@ const routes: AppRouteConfig[] = [
     component: AllKNUPage,
     exact: true,
     isAsync: true,
-    label: 'All KNU',
+    label: 'navigation.allKNU',
     path: '/allknu',
     title: 'PatternFly Seed | Login Page',
   },

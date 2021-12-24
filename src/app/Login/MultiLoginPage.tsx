@@ -6,41 +6,12 @@ import {
   Title
 } from '@patternfly/react-core';
 import {MultiLoginFormTranslated} from "./MultiLoginForm"
+import {withTranslation} from "react-i18next";
 
 class MultiLoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      langId: 'en'
-    }
-    this.usernameLabel={
-      'en': "Username",
-      'ua': "Ім'я користувача"
-    }
-
-    this.passwordLabel={
-      'en': "Password",
-      'ua': "Пароль"
-    }
-
-    this.usernameHelperLabel={
-      'en': "Username is required",
-      'ua': "Ім'я користувача обов'язкове"
-    }
-
-    this.passwordHelperLabel={
-      'en': "Password is required",
-      'ua': "Пароль обов'язковий"
-    }
-
-    this.nextLabel={
-      'en': "Next",
-      'ua': "Далі"
-    }
-
-    this.loginLabel={
-      'en': "Login",
-      'ua': "Увійти"
     }
 
     this.loginTitle={
@@ -60,7 +31,7 @@ class MultiLoginPage extends React.Component {
   }
 
   render() {
-    const {langId} = this.state;
+    const { t } = this.props;
 
     const images = {
       lg: '/assets/images/pfbg_1200.jpg',
@@ -87,26 +58,19 @@ class MultiLoginPage extends React.Component {
             style={{maxWidth: "568px"}}
           >
             <Title headingLevel="h1" size="3xl">
-              {this.loginTitle[langId]}
+              {t("loginPage.title")}
             </Title>
             <Title headingLevel="h2" size="lg" className="pf-u-mt-lg">
-              {this.loginSubtitle[langId]}
+              {t("loginPage.subtitle")}
             </Title>
             <MultiLoginFormTranslated
-              onLanguageSelect={this.onLanguageSelect}
-              usernameLabel={this.usernameLabel[langId]}
-              passwordLabel={this.passwordLabel[langId]}
-              usernameHelperLabel={this.passwordHelperLabel[langId]}
-              passwordHelperLabel={this.passwordHelperLabel[langId]}
-              nextLabel={this.nextLabel[langId]}
-              loginLabel={this.loginLabel[langId]}
             />
           </GridItem>
           <GridItem
             className="pf-u-color-400 pf-u-px-2xl pf-u-py-2xl"
             style={{maxWidth: "568px"}}
           >
-            {this.textContent[langId]}
+            {t("loginPage.content")}
           </GridItem>
         </Grid>
       </PageSection>
@@ -114,4 +78,5 @@ class MultiLoginPage extends React.Component {
   }
 }
 
-export {MultiLoginPage}
+const MultiLoginPageTranslated = withTranslation('common')(MultiLoginPage)
+export {MultiLoginPageTranslated}

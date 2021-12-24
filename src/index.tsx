@@ -4,7 +4,7 @@ import App from '@app/index';
 import {I18nextProvider} from "react-i18next";
 import i18next from "i18next";
 
-import common_ua from "./app/translations/ua/common.json";
+import common_uk from "./app/translations/uk/common.json";
 import common_en from "./app/translations/en/common.json";
 
 i18next.init({
@@ -15,8 +15,8 @@ i18next.init({
       en: {
           common: common_en               // 'common' is our custom namespace
       },
-      ua: {
-          common: common_ua
+      uk: {
+          common: common_uk
       },
   },
 });

@@ -41,7 +41,7 @@ class SelectLanguage extends React.Component {
             i18n.changeLanguage('en');
             break;
           case "Українська":
-            i18n.changeLanguage('ua');
+            i18n.changeLanguage('uk');
         }
 
         //this.props.onSelect(event, selection, isPlaceholder);

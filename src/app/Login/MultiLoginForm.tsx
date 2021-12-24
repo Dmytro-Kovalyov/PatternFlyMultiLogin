@@ -84,11 +84,10 @@ class MultiLoginForm extends React.Component {
         { !usernameEntered && (
         <Form>
           <FormGroup
-            //label={this.props.usernameLabel}
             label={t("loginForm.username")}
             isRequired
             fieldId="login-form-username"
-            helperTextInvalid={this.props.usernameHelperLabel}
+            helperTextInvalid={t("loginForm.usernameHelper")}
             validated={isValidUsername ? ValidatedOptions.default : ValidatedOptions.error}
           >
             <TextInput
@@ -109,7 +108,7 @@ class MultiLoginForm extends React.Component {
               variant="primary"
               onClick={this.OnNextButtonClick}
             >
-              {this.props.nextLabel}
+              {t("loginForm.nextButton")}
             </Button>
           </ActionGroup>
         </Form>)}
@@ -117,7 +116,7 @@ class MultiLoginForm extends React.Component {
         { usernameEntered && (
         <Form>
           <FormGroup
-            label={this.props.usernameLabel}
+            label={t("loginForm.username")}
             isRequired
             fieldId="login-form-display"
           >
@@ -141,10 +140,10 @@ class MultiLoginForm extends React.Component {
           </FormGroup>
 
           <FormGroup
-            label={this.props.passwordLabel}
+            label={t("loginForm.password")}
             isRequired
             fieldId="login-form-password"
-            helperTextInvalid={this.props.passwordHelperLabel}
+            helperTextInvalid={t("loginForm.passwordHelper")}
             validated={isValidPassword ? ValidatedOptions.default : ValidatedOptions.error}
           >
             <InputGroup>
@@ -172,7 +171,7 @@ class MultiLoginForm extends React.Component {
                 variant="primary"
                 onClick={this.OnLoginButtonClick}
               >
-                {this.props.loginLabel}
+                {t("loginForm.loginButton")}
               </Button>
           </ActionGroup>
         </Form>)}

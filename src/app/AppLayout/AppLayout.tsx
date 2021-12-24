@@ -14,6 +14,7 @@ import {
 import { routes, IAppRoute, IAppRouteGroup } from '@app/routes';
 import logo from '@app/bgimages/Patternfly-Logo.svg';
 import {SelectLanguageTranslated} from "../SelectLanguage/SelectLanguage";
+import {useTranslation} from "react-i18next";
 
 interface IAppLayout {
   children: React.ReactNode;
@@ -45,11 +46,12 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const location = useLocation();
 
-  
+  const { t } = useTranslation("common");
+
   const renderNavItem = (route: IAppRoute, index: number) => (
     <NavItem key={`${route.label}-${index}`} id={`${route.label}-${index}`}>
       <NavLink exact={route.exact} to={route.path} activeClassName="pf-m-current">
-        {route.label}
+        {t(route.label)}
       </NavLink>
     </NavItem>
   );
