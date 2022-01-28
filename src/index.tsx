@@ -4,8 +4,11 @@ import App from '@app/index';
 import {I18nextProvider} from "react-i18next";
 import i18next from "i18next";
 
-import common_uk from "./app/translations/uk/common.json";
-import common_en from "./app/translations/en/common.json";
+//import common_uk from "./app/translations/uk/common.json";
+//import common_en from "./app/translations/en/common.json";
+
+import common_uk from "./app/i18n/uk.json";
+import common_en from "./app/i18n/en.json";
 
 i18next.init({
   interpolation: { escapeValue: false },  // React already does escaping
